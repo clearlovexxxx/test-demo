@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VUE - 参数传值</title>
+</head>
+<body>
+  <div id="app">
+    <!-- abc 会被vue 认为是个变量去找 报错 -->
+   <!-- 在调用方式 如何手动获取到浏览器参数的event 的对象:  $event -->
+      <button @click="btnclick(abc,$event)">按钮</button>
+     
+  
+  </div>
+  <script src="js/vue.js"></script>
+
+  <script>
+      //let (变量) const(常量)
+      const app = new Vue({
+              el: '#app',//用于挂载要管理的元素
+              data:{
+                abc:123,
+                 
+
+              },
+              methods:{
+                btnclick(abc,event){
+                  console.log('--------',abc,event);
+                }
+              }
+      })
+
+  </script>
+</body>
+</html>

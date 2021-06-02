@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue-之条件判断</title>
+</head>
+<body>
+    <div id="app">
+        <h1>{{result}}</h>
+    </div>
+    <script src="js/vue.js"></script>
+
+    <script>
+        
+        const app = new Vue({
+                el: '#app',//用于挂载要管理的元素
+                data:{
+                    score:'99',
+                },
+                computed:{
+                  result(){
+                    let showMessage = '';
+                    if(this.score >= 90){
+                      showMessage = '优秀';
+                    }else if(this.score >= 80) {
+                      showMessage = '良好';
+                    }
+                    else if(this.score >= 60){
+                      showMessage = '及格';
+                    }
+                    return showMessage;
+                  }
+                }
+        })
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue-列表 +V-bind 动态绑定 </title>
+</head>
+<body>
+    <style>
+        .active{
+            color: red;
+        }
+        
+    </style>
+    <!-- @ = v-on: -->
+    <!-- V-bind:class = :class -->
+    <!-- {{li+1}}  下标-->
+    <div id="app">
+        <ul>
+            <li v-for="(movie,li) in movies" V-bind:class="{active:currentLi === li}" @click="liClick(li)">
+                    {{li+1}},{{movie}}
+            </li>
+
+            <!-- <li v-for="(movie,index) in movies":class="{active:currentIndex === index}" v-on:click="liClick(index)">
+                {{index}}:{{movie}}
+            </li> -->
+                <div style="height: 20px;margin: 40px;">列表</div>
+
+            <li v-for="movie in movies"> {{movie}}</li>
+            
+        </ul>
+    </div>
+    <script src="js/vue.js"></script>  
+
+<script>
+    const app = new Vue({
+        el:'#app',
+        data:{
+            message:'你好,vue',
+            movies:['111','222','333','444'],
+            currentLi:0
+        },
+        methods:{
+            liClick(li){
+                this.currentLi = li
+
+            }
+
+        }
+
+    })
+</script>
+</body>
+</html>

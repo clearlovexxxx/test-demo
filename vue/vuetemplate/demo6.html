@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue- v-bind 动态绑定class类</title>
+</head>
+<body>
+    <style>
+        .active{
+            color: red;
+        }
+    </style>
+    <div id="app">
+
+        <!-- <P v-bind:class="{key1:val1, key2:val2}">{{message}}</P>
+        <P v-bind:class="{类名1:boolean, 类名2:true}">{{message}}</P> -->
+        <!-- <P class="title" v-bind:class="{active:isActive, line:isLine}">{{message}}</P> -->
+        <P class="title" v-bind:class="getClass()">{{message}}</P>
+      
+    <button v-on:click="btn">按钮</button>
+    <!-- 按钮 取反 -->
+    </div>
+    <script src="js/vue.js"></script>
+
+    <script>
+        const app = new Vue({
+                el: '#app',
+                data:{
+                    message:'你好，Vue',
+                    name:'666',
+                    isActive:true,
+                    isLine:true
+                },
+                methods:{
+                    btn:function(){
+                        this.isActive = !this.isActive
+                    },
+                    getClass: function(){
+                        return {active:this.isActive, line:this.isLine}
+
+                    }
+
+                },
+                computed:{
+
+                   
+                }
+                
+        })
+
+    </script>
+</body>
+</html>

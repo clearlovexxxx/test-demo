@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue 插值语法-v-cloak</title>
+</head>
+<style>
+[v-cloak]{
+    display: none;
+}
+</style>
+<body>
+    <!-- /*斗篷*/ --><!-- 延迟 1秒-->
+    <div id="app" v-cloak>
+        {{message}}
+    </div>
+    <script src="js/vue.js"></script>  
+
+<script>
+    setTimeout(function(){
+        let app = new Vue({
+        el:'#app',
+        data:{
+
+            message:'你好,vue',
+           
+        }
+
+    })
+    },1000)
+   
+</script>
+</body>
+</html>

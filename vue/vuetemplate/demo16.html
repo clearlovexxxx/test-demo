@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>vue 组件key的属性(插入)之响应式</title>
+</head>
+<body>
+  <!-- 中间插入值 以此函数 => splice('start','(n)几个元素','value'(可替换的元素))  = diff 算法 可以正确识别节点找到正确位置插入新的节点-->
+  <!-- 总之 key的作用就是为了高效的更新虚拟dom -->
+
+  <!-- 一些数组的改变会触发视图的更新
+  push()  pop() shift() unshift() splice() sort() reverse() -->
+
+  <div id="app">
+    <ul><li v-for="item in nums">{{item}}</li></ul>
+    <button @click="btnClick">按钮</button>
+  </div>
+  <script src="js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el:"#app",
+    data:{
+      nums:['A','B','C','D','E']
+    },
+    methods:{
+      btnClick(){
+      //1.push 方法 在最后一个位置添加元素
+        // this.nums.push('aaa');
+        // this.nums[0] = 'BBB';
+
+        //2.pop  删除数组中最后一个元素
+        // this.nums.pop();
+
+        //3. shift() 删除数组中第一个元素
+        // this.nums.shift();
+
+        //4.unshift() 在数组最前面添加元素
+        // this.nums.unshift();
+
+        //5， splice()  删除元素  替换元素 插入元素 
+        this.nums.splice(0,1,'PPPP'); // 替换第一个元素
+       
+        // this.nums.splice(1,3); 从第几个元素开始 删除几个元素
+        //this.nums.splice(3);从第几个元素开始删
+        // this.nums.splice(0,0,'1','2','3'); 插入元素 第二个参数必须为0
+        
+        // 6.reverse() 反转
+        // this.nums.reverse();
+
+        // 或者通过索引修改数组中的元素
+
+        // Vue.set(this.num,0,'PPPP');Vue(arr,下标,value)
+
+      }
+    }
+
+  })
+</script>
+</body>
+</html>

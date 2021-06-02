@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue-计数器 加增强写法(p30)</title>
+</head>
+<body>
+<script src="js/vue.js"></script>
+<div id="app">
+      <!-- //v-on:click = @click -->
+    <!-- <h2>当前计数:{{counter}}</h2>
+    <button @click="add">+</button>
+    <button @click="sub">-</button> -->
+
+<div style="height: 30px;"></div>
+
+    <h2>当前计数:{{countera}}</h2>
+    <button @click="increment">+</button>
+    <button @click="decrement">-</button>
+  
+</div>
+<!-- <script>
+            const app = new Vue({
+            el:'#app',
+            data:{
+            counter:0
+            },
+            methods:{
+                add:function(){
+                    console.log('add被执行');
+                    this.counter++
+                },
+                sub:function(){
+                    console.log('sub被执行')
+                    this.counter--
+                }
+
+            }
+
+})
+
+</script> -->
+
+<script>
+    const app = new Vue({
+        el:'#app',
+        data:{
+            countera:0
+        },
+        methods:{
+            increment(){
+                this.countera++
+            },
+            decrement(){
+                this.countera--
+            }
+        }
+
+    })
+
+</script>
+
+</body>
+</html>

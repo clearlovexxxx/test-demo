@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue-遍历对象</title>
+</head>
+<body>
+    <div id="app">
+<!-- v-for 唯一遍历  -->
+      <ul>
+         <li v-for="(item,key,li) in info">{{li+1}}-{{key}}-{{item}}</li>
+      </ul>
+    
+    </div>
+    <script src="js/vue.js"></script>
+
+    <script>
+        //let (变量) const(常量)
+        const app = new Vue({
+                el: '#app',//用于挂载要管理的元素
+                data:{
+                  info:{
+                    name:'KOBE',
+                    age:18,
+                    height:199
+
+                  } 
+
+                }
+        })
+
+    </script>
+</body>
+</html>

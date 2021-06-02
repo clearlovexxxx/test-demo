@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue - 计算属性</title>
+</head>
+<body>
+    <div id="app">
+        <P>总价格:{{totalPrice}}</P>
+    </div>
+    <script src="js/vue.js"></script>
+
+    <script>
+        const app = new Vue({
+                el: '#app',
+                data:{
+                    message:'你好，Vue',
+                    name:'666',
+                    books:[
+                    {price:111},
+                    {price:111},
+                    {price:111},
+                    {price:111},
+                    {price:111},
+                    ]
+                },
+                computed:{
+                    totalPrice:function(){
+                        let res = 0;  
+                        for(let i = 0; i < this.books.length; i++){
+
+                            res += this.books[i].price;
+                        }
+                        return res;
+                    }
+                }
+            
+        })
+
+    </script>
+</body>
+</html>

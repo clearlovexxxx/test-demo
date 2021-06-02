@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue- V-bind链接src/href</title>
+</head>
+<body>
+    <div id="app">
+        <a v-bind:href="aHref">百度一下1</a>
+        <a :href="aHref">百度一下2</a>
+    
+    </div>
+    <script src="js/vue.js"></script>
+
+    <script>
+      
+        const app = new Vue({
+                el: '#app',//用于挂载要管理的元素
+                data:{
+                    message:'你好，Vue',
+                    name:'666',
+                    aHref:'http://www.baidu.com'
+
+                }
+        })
+
+    </script>
+</body>
+</html>

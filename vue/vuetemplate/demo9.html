@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue setter/getter</title>
+</head>
+<body>
+    <div id="app">
+        <P>{{fullName}}</P>
+       
+
+        <P>{{getfullName()}}</P>
+       
+       
+    
+    </div>
+    <script src="js/vue.js"></script>
+
+    <script>
+        //let (变量) const(常量)
+        const app = new Vue({
+                el: '#app',//用于挂载要管理的元素
+                data:{
+ 
+                    firstName:'111',
+                    lastName:'222'
+
+                },
+                //methods 与计算属性computed 的对比 (调用次数不同 computed 自身带有缓存)
+            methods:{
+                getfullName:function(){
+                    // console.log('getfullName'); 调用多次
+                    return this.firstName + ' ' + this.lastName;
+                }
+               
+                },
+            computed:{
+
+                fullName:{
+                    set:function(newValue){
+                        // console.log('------------',newValue); set可修改 一般不用 
+                        const names = newValue.split(' ');
+                        this.firstName = names[0];
+                        this.lastName = names[1];
+                        },
+
+                        //get 为默认 
+
+                    get:function(){
+                        // console.log('fullName'); 只会调用一次
+                    return this.firstName + ' ' + this.lastName;
+
+                        }
+                }
+              
+
+               }
+
+        
+        })
+
+    </script>
+</body>
+</html>

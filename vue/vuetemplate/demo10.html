@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>ES6-第几个button被点击</title>
+
+        <script type="text/javascript">
+            window.onload = function () {
+                const btns = document.getElementsByTagName("button");
+                for (let i=0; i<btns.length; i++) {
+                        let btn = btns[i];
+                        btn.onclick = function () {
+                            console.log('第'+ (i+1) +'个button被点击');
+                        };
+                }
+            }
+        </script>
+
+
+<!-- addEventListener 报错
+    
+    const btns = document.getElementsByTagName("button");
+                //利用let定义i
+                for (let i=0; i < btns.length; i++) {
+                    btns['i'].addEventListener('click',function(){
+                        console.log('第'+ i +'个button被点击');
+                    })
+                } -->
+
+
+<!-- 闭包
+                <script type="text/javascript">
+                    window.onload = function () {
+                        var btns = document.getElementsByTagName("button");
+                        //利用闭包实现循环遍历+监听
+                        for (var i=0, length=btns.length; i<length; i++) {
+                            (function(i) {
+                                var btn = btns[i];
+                                btn.onclick = function () {
+                                    alert('第'+(i+1)+'个');
+                                };
+                            })(i)
+                        }
+                    }
+                </script> -->
+
+                <!-- 使用下标实现
+                    <script type="text/javascript">
+                    window.onload = function () {
+                        var btns = document.getElementsByTagName("button");
+                        for (var i=0, length=btns.length; i<length; i++) {
+                            var btn = btns[i];
+                            //将btn所对应的下标保存在btn上
+                            btn.index = i;
+                            btn.onclick = function () {
+                                alert('第'+(this.index+1)+'个');
+                            };
+                        }
+                    }
+                </script> -->
+    </head>
+    <body>
+        <button>测试1</button>
+        <button>测试2</button>
+        <button>测试3</button>
+    </body>
+</html>
